@@ -6,6 +6,7 @@ import * as express from 'express';
 import * as helmet from 'helmet';
 import {HttpError} from '../error';
 import {sendHttpErrorModule} from '../error/sendHttpError';
+import {NextFunction} from "express";
 
 
 /**
@@ -53,7 +54,7 @@ export function configure(app: express.Application): void {
     app.use(logRequestPaths);
 }
 
-function logRequestPaths(req: Express.Request, res: Express.Response, next: Function): void {
+function logRequestPaths(req: Express.Request, res: Express.Response, next: NextFunction): void {
     console.log(req.method + req.url);
     next();
 }

@@ -1,6 +1,8 @@
 import * as express from 'express';
 import * as http from 'http';
 import * as swaggerUi from 'swagger-ui-express';
+import ExampleRouter from '../routes/ExampleRouter'
+
 let swaggerDoc: Object;
 
 try {
@@ -35,6 +37,12 @@ export function init(app: express.Application): void {
     // app.use('/auth', AuthRouter);
 
     /**
+     * @description Forwards any requests to the /example URI to our ExampleRouter
+     * @constructs
+     */
+    app.use('/example', ExampleRouter);
+
+    /**
      * @description
      *  If swagger.json file exists in root folder, shows swagger api description
      *  else send commands, how to get swagger.json file
@@ -51,7 +59,7 @@ export function init(app: express.Application): void {
         });
     }
 
-    /** 
+    /**
      * @description No results returned mean the object is not found
      * @constructs
      */
