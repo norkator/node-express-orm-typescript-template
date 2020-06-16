@@ -1,6 +1,8 @@
 import * as express from 'express';
 import * as http from 'http';
 import * as swaggerUi from 'swagger-ui-express';
+
+import AuthenticationRouter from '../routes/AuthenticationRouter'
 import ExampleRouter from '../routes/ExampleRouter'
 
 let swaggerDoc: Object;
@@ -34,7 +36,7 @@ export function init(app: express.Application): void {
      * @description Forwards any requests to the /auth URI to our AuthRouter
      * @constructs
      */
-    // app.use('/auth', AuthRouter);
+    app.use('/auth', AuthenticationRouter);
 
     /**
      * @description Forwards any requests to the /example URI to our ExampleRouter

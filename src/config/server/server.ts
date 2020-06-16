@@ -23,14 +23,19 @@ Routes.init(app);
 Middleware.initErrorHandler(app);
 
 /**
- * sets port 3000 to default or unless otherwise specified in the environment
+ * Sets api port 3000 to default or unless otherwise specified in the environment
  */
 app.set('port', process.env.PORT || 3000);
 
 /**
- * sets secret, otherwise specified in the environment
+ * Sets jwt secret, otherwise specified in the environment
  */
 app.set('secret', process.env.JWT_SECRET || '8fa410b58360fd97f3e15a752fd2d6281fc7c0f8');
+
+/**
+ * Set jwt expiration time
+ */
+app.set('jwt-expire', process.env.JWT_EXPIRE || '60m');
 
 /**
  * @exports {express.Application}
