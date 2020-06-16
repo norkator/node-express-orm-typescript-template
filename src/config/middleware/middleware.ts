@@ -7,6 +7,7 @@ import * as helmet from 'helmet';
 import {HttpError} from '../error';
 import {sendHttpErrorModule} from '../error/sendHttpError';
 
+
 /**
  * @export
  * @param {express.Application} app
@@ -48,7 +49,15 @@ export function configure(app: express.Application): void {
         res.header('Access-Control-Allow-Credentials', 'true');
         next();
     });
+
+    app.use(logRequestPaths);
 }
+
+function logRequestPaths(req: Express.Request, res: Express.Response, next: Function): void {
+    console.log(req.method + req.url);
+    next();
+}
+
 
 interface CustomResponse extends express.Response {
     sendHttpError: (error: HttpError | Error, message ?: string) => void;
@@ -79,4 +88,15 @@ export function initErrorHandler(app: express.Application): void {
 
         console.error(error);
     });
+}
+
+
+declare namespace Express {
+    export interface Request {
+        method: any;
+        url: any;
+    }
+
+    export interface Response {
+    }
 }
