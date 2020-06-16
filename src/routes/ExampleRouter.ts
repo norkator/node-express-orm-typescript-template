@@ -7,9 +7,9 @@ import {ExampleComponent} from '../components'
 const router: Router = Router();
 
 router.get('/', ExampleComponent.test);
-// router.post('/', UserComponent.create);
-// router.get('/:id', UserComponent.findOne);
-// router.delete('/:id', UserComponent.remove);
+// router.post('/', ExampleComponent.create);
+// router.get('/:id', ExampleComponent.findOne);
+// router.delete('/:id', ExampleComponent.remove);
 
 /**
  * @export {express.Router}

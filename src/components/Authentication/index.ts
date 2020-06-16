@@ -2,6 +2,8 @@ import {NextFunction, Request, Response} from 'express';
 import app from "../../config/server/server";
 import HttpError from "../../config/error";
 import * as jwt from 'jsonwebtoken';
+import {IUserModel} from "../User/model";
+import AuthService from "./service";
 
 /**
  * @export
@@ -12,12 +14,10 @@ import * as jwt from 'jsonwebtoken';
  */
 export async function createAccount(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
-        // const user: IUserModel = await AuthService.createUser(req.body);
-        /*
+        const user: IUserModel = await AuthService.createUser(req.body);
         const token: string = jwt.sign({email: user.email}, app.get('secret'), {
             expiresIn: app.get('jwt-expire')
         });
-
 
         res.json({
             status: 200,
@@ -25,8 +25,7 @@ export async function createAccount(req: Request, res: Response, next: NextFunct
             token: token,
             message: 'Account created successfully'
         });
-        */
-        res.json({result: 'ok'})
+
     } catch (error) {
         if (error.code === 500) {
             return next(new HttpError(error.message.status, error.message));
@@ -46,6 +45,6 @@ export async function createAccount(req: Request, res: Response, next: NextFunct
  * @param {NextFunction} next
  * @returns {Promise < void >}
  */
-export async function login(req: Request, res: Response, next: NextFunction): Promise < void > {
+export async function login(req: Request, res: Response, next: NextFunction): Promise<void> {
     res.json({result: 'ok'});
 }
