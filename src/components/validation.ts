@@ -1,5 +1,4 @@
-import * as Joi from 'joi';
-import { Types } from 'mongoose';
+import * as Joi from 'hapi__joi';
 
 /**
  * @export
@@ -23,6 +22,7 @@ abstract class Validation {
      */
     constructor() {
         this.customJoi = Joi.extend({
+            // @ts-ignore
             name: 'objectId',
             language: {
                 base: this.messageObjectId
@@ -32,6 +32,8 @@ abstract class Validation {
                 state: Joi.State,
                 options: Joi.ValidationOptions
             ): Object | string {
+
+                /*
                 if (!Types.ObjectId.isValid(value)) {
                     return this.createError(
                         'objectId.base', {
@@ -41,6 +43,7 @@ abstract class Validation {
                         options
                     );
                 }
+                */
 
                 return value; // Keep the value as it was
             }
