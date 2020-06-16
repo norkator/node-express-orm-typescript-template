@@ -1,0 +1,19 @@
+{
+  "name": "node-express-orm-typescript-template",
+  "version": "1.0.0",
+  "description": "Simple API template",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/norkator/Node-Express-Orm-TypeScript-Template.git"
+  },
+  "author": "Norkator - Martin Kankaanranta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/norkator/Node-Express-Orm-TypeScript-Template/issues"
+  },
+  "homepage": "https://github.com/norkator/Node-Express-Orm-TypeScript-Template#readme"
+}
