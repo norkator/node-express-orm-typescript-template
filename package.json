@@ -28,11 +28,11 @@
     "express": "4.17.1",
     "helmet": "3.23.0",
     "jsonwebtoken": "8.5.1",
-    "knex": "0.21.1",
-    "objection": "2.2.0",
-    "pg": "8.2.1"
+    "pg": "8.2.1",
+    "sequelize": "5.21.13"
   },
   "devDependencies": {
+    "@types/sequelize": "4.28.9",
     "@types/bcrypt": "3.0.0",
     "@types/compression": "1.7.0",
     "@types/cookie-parser": "1.4.2",
