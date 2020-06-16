@@ -1,7 +1,7 @@
-import * as AuthComponent from './Auth';
-import * as UserComponent from './User';
+import * as AuthenticationComponent from './Authentication'
+import * as ExampleComponent from './Example/index';
 
 export {
-    AuthComponent, 
-    UserComponent
+    AuthenticationComponent,
+    ExampleComponent
 };
