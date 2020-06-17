@@ -19,6 +19,7 @@ Table of contents
 * [Documentation](#documentation)
     * [Beginning](#beginning)
     * [Adding new route](#adding-new-route)
+    * [Route authentication](#route-authentication)
 * [Calling routes](#calling-routes)
 * [Authors](#authors)
 * [Contributors](#contributors)
@@ -110,6 +111,50 @@ logRequestPaths     # Live logging requested paths, can be disabled since consol
 
 Adding new route
 -----
+
+Adding new router or route starts from `/routes` folder via copy paste existing router like `ExampleRouter.ts` 
+to a new name like `NewRouter.ts`
+
+!['NewRouter1'](./images/new_router_1.PNG)
+
+Then you need to create new component which has required method logic 
+
+!['NewRouter2'](./images/new_router_2.PNG)
+
+Inside `index.ts` has again copy pasted content from Example component which is returning json result ok for post request
+
+!['NewRouter3'](./images/new_router_3.PNG)
+
+Now go to following index.ts file under `/routes` folder
+
+!['NewRouter4'](./images/new_router_4.PNG)
+
+At the routes index file you create base route for your new `NewRouter` route like this:
+
+!['NewRouter5'](./images/new_router_5.PNG)
+
+Also you need to import this `NewRouter`
+
+!['NewRouter6'](./images/new_router_6.PNG)
+
+Since this is post method which was defined at `NewRouter.ts`, result will be for post request:
+
+!['NewRouter7'](./images/new_router_7.PNG)
+
+
+
+Route authentication
+-----
+
+See `ExampleRouter.ts` for good example how you can define part of route under authentication.  
+!['JwtAuth1'](./images/jwt_auth_1.PNG)
+
+This means that you can access `http:localhost:port/example` without authentication and then define under this path 
+which components require authentication.
+
+Or you define whole in this case `http:localhost:port/new` route requiring always authentication no matter
+which method is called behind it.  
+!['JwtAuth2'](./images/jwt_auth_2.PNG)
 
 
 
