@@ -19,6 +19,10 @@ Table of contents
 * [Documentation](#documentation)
     * [Beginning](#beginning)
     * [Adding new route](#adding-new-route)
+* [Calling routes](#calling-routes)
+* [Authors](#authors)
+* [Contributors](#contributors)
+
 --------------------
 
 Sources
@@ -106,3 +110,27 @@ logRequestPaths     # Live logging requested paths, can be disabled since consol
 
 Adding new route
 -----
+
+
+
+
+Calling routes
+============
+There is a file called `ApiTesting.http` included in root of this project. 
+That file can be run at least on Intellij IDE's having integrated REST client like Postman.
+
+!['Swagger'](./images/http_test_1.PNG)
+
+!['Swagger'](./images/http_test_2.PNG)
+
+
+Authors
+============
+
+* **Norkator** - *Initial work* - [norkator](https://github.com/norkator)
+
+
+Contributors
+============
+
+None so far.
