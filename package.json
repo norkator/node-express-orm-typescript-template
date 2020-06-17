@@ -6,14 +6,13 @@
   "scripts": {
     "build": "tsc --skipLibCheck",
     "start": "tsc --skipLibCheck && node ./build/config/server/index.js",
-    "ts:watch": "tsc -w",
-    "test": "NODE_ENV=test mocha -r ts-node/register test/index.js --exit"
+    "ts:watch": "tsc -w"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/norkator/Node-Express-Orm-TypeScript-Template.git"
   },
-  "author": "Norkator - Martin Kankaanranta",
+  "author": "Norkator",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/norkator/Node-Express-Orm-TypeScript-Template/issues"
@@ -45,6 +44,7 @@
     "@types/sequelize": "4.28.9",
     "@types/swagger-ui-express": "4.1.2",
     "swagger-jsdoc": "4.0.0",
-    "swagger-ui-express": "4.1.4"
+    "swagger-ui-express": "4.1.4",
+    "mocha": "8.0.1"
   }
 }
