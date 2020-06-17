@@ -4,17 +4,6 @@ import sequelize from './index'
 export class UserModel extends Model {
 }
 
-/*
-export class AppUserModel {
-    id: string;
-    name: string;
-    email: string;
-    password: string;
-    createdAt: Date;
-    updatedAt: Date;
-}
-*/
-
 UserModel.init(
     {
         id: {
@@ -24,9 +13,9 @@ UserModel.init(
         },
         name: STRING(50),
         email: STRING(50),
-        password: STRING(50)
+        password: STRING(100)
     },
-    {sequelize, modelName: 'UserModel'}
+    {sequelize, modelName: 'User'}
 );
 
 

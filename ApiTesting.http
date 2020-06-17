@@ -1,0 +1,14 @@
+###################################################################################
+###### CREATE ACCOUNT                                                        ######
+###################################################################################
+### Send POST request with json body
+POST http://localhost:3000/auth/create-account
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@tester.com",
+  "password": "toohardpasswd"
+}
+
+###

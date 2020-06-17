@@ -4,6 +4,8 @@ import HttpError from "../../server/error";
 import * as jwt from 'jsonwebtoken';
 import {UserModel, UserModelInterface} from "../../database/models/user";
 import * as User from '../../database/dao/user'
+import * as crypto from 'crypto';
+import * as bcrypt from 'bcrypt';
 
 /**
  * @export
@@ -16,12 +18,13 @@ export async function createAccount(req: Request, res: Response, next: NextFunct
     try {
 
         const user = <UserModelInterface>{
+            name: req.body.name,
             email: req.body.email,
             password: req.body.password
         };
 
         // Check for mandatory details
-        if (user.email === undefined || user.password === undefined) {
+        if (user.name === undefined || user.email === undefined || user.password === undefined) {
             throw new Error('Missing details!');
         }
 
@@ -31,6 +34,13 @@ export async function createAccount(req: Request, res: Response, next: NextFunct
         if (query) {
             throw new Error('This email already exists');
         }
+
+
+        // Hash password before database insert
+        const salt: string = await bcrypt.genSalt(10);
+        const hash: string = await bcrypt.hash(user.password, salt);
+        user.password = hash;
+
 
         // This will insert new user into database
         const saved: UserModelInterface = await User.create(user);
@@ -43,7 +53,6 @@ export async function createAccount(req: Request, res: Response, next: NextFunct
 
         res.json({
             status: 200,
-            logged: true,
             token: token,
             message: 'Account created successfully'
         });
