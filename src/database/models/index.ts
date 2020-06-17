@@ -1,7 +1,7 @@
 import {Dialect, Sequelize} from 'sequelize'
 import * as dotEnv from 'dotenv'
 
-let pgTools = require('pgtools');
+const pgTools = require('pgtools');
 
 dotEnv.config();
 

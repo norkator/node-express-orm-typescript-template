@@ -23,19 +23,18 @@ export function init(app: express.Application): void {
 
 
     /**
+     * @description
      * Specify main routes and their routers
      * either with authentication required or not
      * see examples below
      */
-
     app.use('/auth', AuthenticationRouter);
     app.use('/example', ExampleRouter); // With JWT here: app.use('/example', jwtConfig.isAuthenticated, ExampleRouter);
 
     /**
      * @description
-     *  If swagger.json file exists in root folder, shows swagger api description
-     *  else send commands, how to get swagger.json file
-     * @constructs
+     * Swagger is updated using swagger-jsdoc automatically every startup
+     * so no need for any swagger cli manual work
      */
     app.use('/docs', swaggerUi.serve);
     app.get('/docs', swaggerUi.setup(swaggerSpecs));

@@ -1,8 +1,8 @@
 import * as jwt from 'jsonwebtoken';
 import {NextFunction, Request, Response} from 'express';
-import app from '../server/server';
 import HttpError from '../server/error';
 import * as http from 'http';
+import app from "./server";
 
 interface RequestWithUser extends Request {
     user: object | string;
@@ -29,9 +29,7 @@ export function isAuthenticated(req: RequestWithUser, res: Response, next: NextF
 
         if (jwtToken) {
             try {
-                const user: object | string = jwt.verify(jwtToken, app.get('secret'));
-
-                req.user = user;
+                req.user = jwt.verify(jwtToken, app.get('secret'));
 
                 return next();
 
