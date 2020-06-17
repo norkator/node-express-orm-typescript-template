@@ -1,22 +1,21 @@
 import * as express from 'express';
 import * as http from 'http';
+import * as swaggerJsdoc from 'swagger-jsdoc'
 import * as swaggerUi from 'swagger-ui-express';
 import * as jwtConfig from '../server/jwtAuth';
 
 import AuthenticationRouter from '../routes/AuthenticationRouter'
 import ExampleRouter from '../routes/ExampleRouter'
 
-let swaggerDoc: Object;
 
-try {
-    swaggerDoc = require('../../swagger.json');
-} catch (error) {
-    console.log('***************************************************');
-    console.log('  Seems like you doesn\`t have swagger.json file');
-    console.log('  Please, run: ');
-    console.log('  $ swagger-jsdoc -d swagger.js -o swagger.json');
-    console.log('***************************************************');
-}
+const swaggerOptions = require('../../swagger');
+
+
+const swaggerSpecs = swaggerJsdoc(swaggerOptions);
+
+
+
+
 
 /**
  * @export
@@ -42,16 +41,8 @@ export function init(app: express.Application): void {
      *  else send commands, how to get swagger.json file
      * @constructs
      */
-    if (swaggerDoc) {
-        app.use('/docs', swaggerUi.serve);
-        app.get('/docs', swaggerUi.setup(swaggerDoc));
-    } else {
-        app.get('/docs', (req, res) => {
-            res.send('<p>Seems like you don\'t have <code>swagger.json</code> file.</p>' +
-                '<p>For generate doc file use: <code>swagger-jsdoc -d swagger.js -o swagger.json</code> in terminal</p>' +
-                '<p>Then, restart your application</p>');
-        });
-    }
+    app.use('/docs', swaggerUi.serve);
+    app.get('/docs', swaggerUi.setup(swaggerSpecs));
 
     /**
      * @description No results returned mean the object is not found
