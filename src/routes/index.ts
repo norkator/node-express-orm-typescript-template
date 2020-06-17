@@ -14,9 +14,6 @@ const swaggerOptions = require('../../swagger');
 const swaggerSpecs = swaggerJsdoc(swaggerOptions);
 
 
-
-
-
 /**
  * @export
  * @param {express.Application} app
@@ -32,8 +29,7 @@ export function init(app: express.Application): void {
      */
 
     app.use('/auth', AuthenticationRouter);
-    app.use('/example-no-auth', ExampleRouter);
-    app.use('/example-with-auth', jwtConfig.isAuthenticated, ExampleRouter);
+    app.use('/example', ExampleRouter); // With JWT here: app.use('/example', jwtConfig.isAuthenticated, ExampleRouter);
 
     /**
      * @description

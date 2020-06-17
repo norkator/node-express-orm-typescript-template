@@ -15,7 +15,7 @@ const router: Router = Router();
  * /auth/create-account:
  *   post:
  *      description: Create new User
- *      tags: ["users"]
+ *      tags: ["Authentication"]
  *      security:
  *       - bearerAuth: []
  *      requestBody:
@@ -55,7 +55,7 @@ router.post('/create-account', AuthenticationComponent.createAccount);
  * /auth/login:
  *   post:
  *      description: Login with existing account
- *      tags: ["users"]
+ *      tags: ["Authentication"]
  *      security:
  *       - bearerAuth: []
  *      requestBody:

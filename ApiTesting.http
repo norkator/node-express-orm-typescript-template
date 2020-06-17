@@ -28,16 +28,16 @@ Content-Type: application/json
 ###################################################################################
 
 ### No authentication, result will be ok without token
-GET http://localhost:3000/example-no-auth
+GET http://localhost:3000/example/no-auth
 Accept: application/json
 
 ### Token missing, throw error 400
-GET http://localhost:3000/example-with-auth
+GET http://localhost:3000/example/with-auth
 Accept: application/json
 
 ### Token provided, get token from login
-GET http://localhost:3000/example-with-auth
+GET http://localhost:3000/example/with-auth
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdGVyLmNvbSIsImlhdCI6MTU5MjM4MTIzNiwiZXhwIjoxNTkyMzg0ODM2fQ.bZrrHCvdxeZscfVZUKzRtLO-4o2DoNwUnqFbYiFAuWA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdGVyLmNvbSIsImlhdCI6MTU5MjM4OTM1MiwiZXhwIjoxNTkyMzkyOTUyfQ.qEv8aABdImvMXPYHRgiDrf3x-RJ15hE57ACZkCaqc5k
 
 ###

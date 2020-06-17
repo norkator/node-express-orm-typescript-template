@@ -24,19 +24,22 @@ interface RequestWithUser extends Request {
  *       name: authorization
  */
 export function isAuthenticated(req: RequestWithUser, res: Response, next: NextFunction): void {
-    const jwtToken: any = req.headers['authorization'].replace(/^Bearer\s/, '');
+    try {
+        const jwtToken: any = req.headers['authorization'].replace(/^Bearer\s/, '');
 
-    if (jwtToken) {
-        try {
-            const user: object | string = jwt.verify(jwtToken, app.get('secret'));
+        if (jwtToken) {
+            try {
+                const user: object | string = jwt.verify(jwtToken, app.get('secret'));
 
-            req.user = user;
+                req.user = user;
 
-            return next();
+                return next();
 
-        } catch (error) {
-            return next(new HttpError(401, http.STATUS_CODES[401]));
+            } catch (error) {
+                return next(new HttpError(401, http.STATUS_CODES[401]));
+            }
         }
+    } catch (e) {
     }
 
     return next(new HttpError(400, 'No token provided'));
