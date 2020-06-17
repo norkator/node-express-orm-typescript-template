@@ -11,4 +11,33 @@ Content-Type: application/json
   "password": "toohardpasswd"
 }
 
+###################################################################################
+###### LOGIN                                                                 ######
+###################################################################################
+### Send POST request with json body
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@tester.com",
+  "password": "toohardpasswd"
+}
+
+###################################################################################
+###### EXAMPLE ROUTE TESTS, WITH AUTH AND NO AUTH                            ######
+###################################################################################
+
+### No authentication, result will be ok without token
+GET http://localhost:3000/example-no-auth
+Accept: application/json
+
+### Token missing, throw error 400
+GET http://localhost:3000/example-with-auth
+Accept: application/json
+
+### Token provided, get token from login
+GET http://localhost:3000/example-with-auth
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdGVyLmNvbSIsImlhdCI6MTU5MjM4MTIzNiwiZXhwIjoxNTkyMzg0ODM2fQ.bZrrHCvdxeZscfVZUKzRtLO-4o2DoNwUnqFbYiFAuWA
+
 ###

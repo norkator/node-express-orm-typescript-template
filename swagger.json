@@ -34,10 +34,11 @@
       }
     },
     "securitySchemes": {
-      "ApiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "x-access-token"
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "name": "authorization"
       }
     }
   },

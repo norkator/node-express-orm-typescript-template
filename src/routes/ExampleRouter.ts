@@ -8,7 +8,6 @@ const router: Router = Router();
 
 router.get('/', ExampleComponent.test);
 // router.post('/', ExampleComponent.create);
-// router.get('/:id', ExampleComponent.findOne);
 // router.delete('/:id', ExampleComponent.remove);
 
 /**
