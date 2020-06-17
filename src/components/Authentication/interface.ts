@@ -1,20 +1,15 @@
-import { IUserModel } from '../User/model';
+import {UserModelInterface} from "../../database/models/user";
 
 /**
  * @export
  * @interaface IAuthService
  */
 export interface IAuthService {
+
     /**
-     * @param {IUserModel} IUserModel
-     * @returns {Promise<IUserModel>}
+     * @param {UserModelInterface} IUserModel
+     * @returns {Promise<UserModelInterface>}
      * @memberof AuthService
      */
-    createUser(IUserModel: IUserModel): Promise < IUserModel > ;
-    /**
-     * @param {IUserModel} IUserModel
-     * @returns {Promise<IUserModel>}
-     * @memberof AuthService
-     */
-    getUser(IUserModel: IUserModel): Promise < IUserModel >;
+    getUser(IUserModel: UserModelInterface): Promise<UserModelInterface>;
 }

@@ -1,6 +1,9 @@
 import * as express from 'express';
-import * as Middleware from '../middleware/middleware';
-import * as Routes from '../../routes';
+import * as Middleware from './middleware';
+import * as Routes from '../routes/index';
+import * as dotEnv from 'dotenv'
+
+dotEnv.config();
 
 /**
  * @constant {express.Application}
@@ -49,6 +52,11 @@ app.set('db-dialect', process.env.DB_DIALECT || 'postgres');
 app.set('db-host', process.env.DB_HOST || '127.0.0.1');
 
 /**
+ * Set database host address
+ */
+app.set('db-port', process.env.DB_PORT || '5432');
+
+/**
  * Set database user
  */
 app.set('db-user', process.env.DB_USER || 'postgres');
@@ -61,8 +69,7 @@ app.set('db-password', process.env.DB_PASSWD || 'BadPassword');
 /**
  * Set database name
  */
-app.set('db-name', process.env.DB_NAME || 'ApiExample');
-
+app.set('db-database', process.env.DB_DATABASE || 'ApiExample');
 
 
 /**

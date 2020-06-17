@@ -4,8 +4,8 @@ import * as cookieParser from 'cookie-parser';
 import * as cors from 'cors';
 import * as express from 'express';
 import * as helmet from 'helmet';
-import {HttpError} from '../error';
-import {sendHttpErrorModule} from '../error/sendHttpError';
+import {HttpError} from './error';
+import {sendHttpErrorModule} from './error/sendHttpError';
 import {NextFunction} from "express";
 
 

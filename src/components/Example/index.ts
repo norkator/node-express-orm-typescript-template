@@ -1,5 +1,5 @@
 import {NextFunction, Request, Response} from 'express';
-import HttpError from "../../config/error/index";
+import HttpError from "../../server/error/index";
 
 /**
  * @export

@@ -1,5 +1,5 @@
-import {IUserModel} from '../User/model';
 import {IAuthService} from './interface';
+import {UserModelInterface} from "../../database/models/user";
 
 /**
  * @export
@@ -8,42 +8,11 @@ import {IAuthService} from './interface';
 const AuthService: IAuthService = {
 
     /**
-     * @param {IUserModel} body
-     * @returns {Promise <IUserModel>}
+     * @param {UserModelInterface} body
+     * @returns {Promise <UserModelInterface>}
      * @memberof AuthService
      */
-    async createUser(body: IUserModel): Promise<IUserModel> {
-        try {
-
-            /*
-            const user: IUserModel = new UserModel({
-                email: body.email,
-                password: body.password
-            });
-
-            const query: IUserModel = await UserModel.findOne({
-                email: body.email
-            });
-
-            if (query) {
-                throw new Error('This email already exists');
-            }
-
-            const saved: IUserModel = await user.save();
-
-            return saved;
-            */
-            return null;
-        } catch (error) {
-            throw new Error(error);
-        }
-    },
-    /**
-     * @param {IUserModel} body
-     * @returns {Promise <IUserModel>}
-     * @memberof AuthService
-     */
-    async getUser(body: IUserModel): Promise<IUserModel> {
+    async getUser(body: UserModelInterface): Promise<UserModelInterface> {
         try {
 
             /*
