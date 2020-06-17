@@ -1,3 +1,5 @@
+!['Swagger'](./images/swagger.PNG)
+
 # Node-Express-Orm-TypeScript-Template
 Simple Node.js, Express, TypeScript, Sequelize Orm template with proper documentation to get started.
 
@@ -15,8 +17,8 @@ Table of contents
     * [Environment settings](#environment-settings)
     * [Start dev server](#start-dev-server)
 * [Documentation](#documentation)
-    * [Title1](#title1)
-    * [Title2](#title2)
+    * [Beginning](#beginning)
+    * [Adding new route](#adding-new-route)
 --------------------
 
 Sources
@@ -70,12 +72,37 @@ Open web browser and navigate to `http://localhost:3000/` depending of port you 
 Documentation
 ============
 
+Beginning
+-----
 
---------------------
-Todo: npm install express @types/express
+See `nodemon.json` file at the root of this project. Inside there you find reference to file `/src/server/index.ts`
 
+Server `index.ts` is where all begins. It works with following components:
 
-Todo: explain about  dev dependencies
+<b>index.ts</b>
+```text
+eventHandlers          # Functions which are triggered on specific events like on error event.
+```
 
-Todo: https://github.com/helmetjs/helmet
-explain helmet
+<b>server.ts</b>
+```text
+express             # creates express app
+middleware          # load middleware, this is explained more later
+routes              # This is where your routes like /book/get are described and then logic is behind this
+process variables   # At server.ts app get's set it's process variables, loaded from .env file or set as default if not specified
+```
+
+<b>middleware.ts</b>  
+Middleware has following functions:
+```text
+bodyparser          # Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
+cookieParser        # Parse Cookie header and populate req.cookies with an object keyed by the cookie names.
+compression         # Attempt to compress response bodies for all request that traverse through the middleware, based on the given options.
+helmet              # Helps you secure your Express apps by setting various HTTP headers.
+cors                # Connect/Express middleware that can be used to enable CORS with various options.
+sendHttpErrorModule # Custom request filter to send error code on non valid request. 
+logRequestPaths     # Live logging requested paths, can be disabled since console logging is synchronous, meaning that it affects performance.
+```
+
+Adding new route
+-----
