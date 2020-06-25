@@ -4,11 +4,11 @@ import * as swaggerJsdoc from 'swagger-jsdoc'
 import * as swaggerUi from 'swagger-ui-express';
 import * as jwtConfig from '../server/jwtAuth';
 
-import AuthenticationRouter from '../routes/AuthenticationRouter'
-import ExampleRouter from '../routes/ExampleRouter'
+import AuthenticationRouter from './AuthenticationRouter'
+import ExampleRouter from './ExampleRouter'
 
 
-const swaggerOptions = require('../../swagger');
+const swaggerOptions = require('../../../swagger');
 
 
 const swaggerSpecs = swaggerJsdoc(swaggerOptions);

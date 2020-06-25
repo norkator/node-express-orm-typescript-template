@@ -1,11 +1,11 @@
 {
   "name": "node-express-orm-typescript-template",
   "version": "1.0.0",
-  "description": "Simple API template",
+  "description": "Simplified ts api, app template",
   "main": "./build/index.js",
   "scripts": {
     "build": "tsc --skipLibCheck",
-    "start": "tsc --skipLibCheck && node ./build/config/server/index.js",
+    "start": "tsc --skipLibCheck && node ./build/app.js",
     "ts:watch": "tsc -w"
   },
   "repository": {
@@ -27,6 +27,7 @@
     "express": "4.17.1",
     "helmet": "3.23.0",
     "jsonwebtoken": "8.5.1",
+    "node-schedule": "1.3.2",
     "pg": "8.2.1",
     "pgtools": "0.3.0",
     "sequelize": "5.21.13"

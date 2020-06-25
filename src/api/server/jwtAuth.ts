@@ -1,6 +1,6 @@
 import * as jwt from 'jsonwebtoken';
 import {NextFunction, Request, Response} from 'express';
-import HttpError from '../server/error';
+import HttpError from './error/index';
 import * as http from 'http';
 import app from "./server";
 

@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import {ExampleComponent} from '../components'
+import {ExampleComponent} from '../components/index'
 import * as jwtConfig from "../server/jwtAuth";
 
 /**
