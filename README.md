@@ -1,11 +1,14 @@
 !['Swagger'](./images/swagger.PNG)
 
 # Node-Express-Orm-TypeScript-Template
-Simple Node.js, Express, TypeScript, Sequelize Orm template with proper documentation to get started.
+Simple Node.js, Express, TypeScript, Sequelize Orm app api template with proper documentation to get started.
 
-Goal of this repository is to build simple well documented TypeScript based Node.JS Express api 
+Goal of this repository is to build simple well documented TypeScript based Node.JS Express application api 
 which is easy and fast base for agile api development when time is limited. It's <b>work in progress</b>.
 
+It's not only meant to be api but also application running tasks with node-scheduler. 
+I am personally using tasks to update specific database information while serving api for 
+front end applications. 
 
 --------------------
 Table of contents
@@ -29,7 +32,8 @@ Table of contents
 Sources
 ============
 I originally used api generator from this [source](https://github.com/ChechaValerii/node-typescript-mongodb).
-I found this initially complicated to get started with if no proper experience with TypeScript API's.
+I found this initially complicated to get started with if no proper experience with TypeScript API's. 
+I later added different structure, https and scheduled tasks support. 
 
 Version notes
 ============
@@ -80,13 +84,16 @@ Documentation
 Beginning
 -----
 
-See `nodemon.json` file at the root of this project. Inside there you find reference to file `/src/server/index.ts`
+See `nodemon.json` file at the root of this project. Inside there you find reference to file `/src/index.ts`
 
 Server `index.ts` is where all begins. It works with following components:
 
 <b>index.ts</b>
 ```text
+dbTools                # Checks database existence, creates it if not based on .env details
+createServer           # Either http or https controlled by .env file, production use https with valid cert like letsencrypt
 eventHandlers          # Functions which are triggered on specific events like on error event.
+app                    # Leads to /src/app/ structure. Open index.ts there to specify tasks.
 ```
 
 <b>server.ts</b>
