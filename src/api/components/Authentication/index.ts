@@ -1,9 +1,9 @@
 import {NextFunction, Request, Response} from 'express';
 import app from "../../server/server";
-import HttpError from "../../server/error";
+import HttpError from "../../server/error/index";
 import * as jwt from 'jsonwebtoken';
-import {UserModelInterface} from "../../database/models/user";
-import * as User from '../../database/dao/user'
+import {UserModelInterface} from "../../../database/models/user";
+import * as User from '../../../database/dao/user'
 import * as bcrypt from 'bcrypt';
 
 /**

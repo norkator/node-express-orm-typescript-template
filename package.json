@@ -1,11 +1,11 @@
 {
   "name": "node-express-orm-typescript-template",
   "version": "1.0.0",
-  "description": "Simple API template",
+  "description": "Simplified ts api, app template",
   "main": "./build/index.js",
   "scripts": {
     "build": "tsc --skipLibCheck",
-    "start": "tsc --skipLibCheck && node ./build/config/server/index.js",
+    "start": "tsc --skipLibCheck && node ./build/app.js",
     "ts:watch": "tsc -w"
   },
   "repository": {
