@@ -1,5 +1,5 @@
 import {Model, STRING, BIGINT} from 'sequelize'
-import sequelize from './index'
+import sequelize from '../index'
 
 export class UserModel extends Model {
 }
