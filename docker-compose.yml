@@ -1,0 +1,17 @@
+version: "3"
+networks:
+  api_server_default:
+    external: true
+
+services:
+  # The application image
+  node-express-orm-typescript-template:
+    networks:
+    - api_server_default
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      ENV_NAME: dev
+    ports:
+    - 3000:3000
