@@ -5,6 +5,7 @@ dotEnv.config();
 
 export async function exampleTask(): Promise<boolean> {
     try {
+        loggingUtil.logInfo('running exampleTask');
         return await examplePromiseFunction;
     } catch (error) {
         loggingUtil.logError(error);
