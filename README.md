@@ -8,7 +8,9 @@ which is easy and fast base for agile api development when time is limited. It's
 
 It's not only meant to be api but also application running tasks with node-scheduler. 
 I am personally using tasks to update specific database information while serving api for 
-front end applications. 
+front end applications.
+
+<b>Contributions are very very welcome and highly appreciated!</b>
 
 --------------------
 Table of contents
