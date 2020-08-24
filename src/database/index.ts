@@ -4,6 +4,9 @@ import * as loggingUtil from "../app/loggingUtil";
 
 dotEnv.config();
 
+// https://github.com/sequelize/sequelize/issues/1774
+require('pg').defaults.parseInt8 = true;
+
 const sequelize = new Sequelize(
     process.env.DB_DATABASE,
     process.env.DB_USER,
