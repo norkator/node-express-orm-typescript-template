@@ -6,7 +6,8 @@ import {CustomerModel, CustomerModelInterface} from '../models/customer'
  * @param organizationId id of organization
  * @return Promise<CustomerModel[]>
  */
-export function findAll(organizationId: number): Promise<CustomerModel[]> {
+export function findAll(organizationId: number): Promise<CustomerModelInterface[]> {
+    // @ts-ignore
     return CustomerModel.findAll({
         include: [{all: true}],
         where: {
@@ -17,12 +18,14 @@ export function findAll(organizationId: number): Promise<CustomerModel[]> {
 }
 
 
-export function create(customer: CustomerModelInterface): Promise<CustomerModel> {
+export function create(customer: CustomerModelInterface): Promise<CustomerModelInterface> {
+    // @ts-ignore
     return CustomerModel.create(customer);
 }
 
 
-export function findOne(customerId: number): Promise<CustomerModel> {
+export function findOne(customerId: number): Promise<CustomerModelInterface> {
+    // @ts-ignore
     return CustomerModel.findOne({
         include: [{all: true}],
         where: {
@@ -33,7 +36,8 @@ export function findOne(customerId: number): Promise<CustomerModel> {
 }
 
 
-export async function update(customer: CustomerModelInterface): Promise<CustomerModel> {
+export async function update(customer: CustomerModelInterface): Promise<CustomerModelInterface> {
     const object = await findOne(customer.id);
+    // @ts-ignore
     return object.update(customer);
 }

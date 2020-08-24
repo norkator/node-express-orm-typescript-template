@@ -1,6 +1,6 @@
 import {UserModel, UserModelInterface} from '../models/user'
 
-export function create(user: UserModelInterface): Promise<UserModel> {
+export function create(user: UserModelInterface): Promise<UserModelInterface> {
     // @ts-ignore
     return UserModel.create({
         name: user.name,
@@ -14,7 +14,7 @@ export function findAll(): Promise<UserModel> {
     return UserModel.findAll({include: [{all: true}]})
 }
 
-export function login(user: UserModelInterface): Promise<UserModel> {
+export function login(user: UserModelInterface): Promise<UserModelInterface> {
     // @ts-ignore
     return UserModel.findOne({
         where: {
@@ -24,7 +24,7 @@ export function login(user: UserModelInterface): Promise<UserModel> {
     })
 }
 
-export function findOne(user: UserModelInterface): Promise<UserModel> {
+export function findOne(user: UserModelInterface): Promise<UserModelInterface> {
     // @ts-ignore
     return UserModel.findOne({
         where: {
