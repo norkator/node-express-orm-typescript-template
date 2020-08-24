@@ -41,3 +41,12 @@ export async function update(customer: CustomerModelInterface): Promise<Customer
     // @ts-ignore
     return object.update(customer);
 }
+
+
+export async function deleteOne(customerId: number): Promise<void> {
+    CustomerModel.destroy({
+        where: {
+            id: customerId
+        }
+    });
+}

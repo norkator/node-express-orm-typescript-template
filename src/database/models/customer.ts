@@ -1,15 +1,6 @@
 import {Model, STRING, BIGINT} from 'sequelize'
 import sequelize from '../index'
 
-export interface CustomerModelInterface {
-    id: number;
-    organization_id: number;
-    customer_name: string;
-    customer_description: string;
-    createdAt: string;
-    updatedAt: string;
-}
-
 export class CustomerModel extends Model {
 }
 
@@ -26,3 +17,12 @@ CustomerModel.init(
     },
     {sequelize, modelName: 'Customer'}
 );
+
+export interface CustomerModelInterface {
+    id: number;
+    organization_id: number;
+    customer_name: string;
+    customer_description: string;
+    createdAt: string;
+    updatedAt: string;
+}

@@ -6,6 +6,7 @@ import * as jwtConfig from '../server/jwtAuth';
 
 import AuthenticationRouter from './AuthenticationRouter'
 import ExampleRouter from './ExampleRouter'
+import CustomerRouter from './CustomerRouter'
 
 
 const swaggerOptions = require('../../../swagger');
@@ -30,6 +31,7 @@ export function init(app: express.Application): void {
      */
     app.use('/auth', AuthenticationRouter);
     app.use('/example', ExampleRouter); // With JWT here: app.use('/example', jwtConfig.isAuthenticated, ExampleRouter);
+    app.use('/customers', jwtConfig.isAuthenticated, CustomerRouter);
 
     /**
      * @description

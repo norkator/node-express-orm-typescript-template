@@ -32,3 +32,11 @@ export function findOne(user: UserModelInterface): Promise<UserModelInterface> {
         }
     })
 }
+
+export function findOneWithId(userId: number): Promise<any> {
+    return UserModel.findOne({
+        where: {
+            id: userId,
+        }
+    })
+}
