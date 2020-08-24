@@ -20,7 +20,8 @@ export function configure(app: express.Application): void {
         extended: false
     }));
 
-    app.use(bodyParser.json());
+    // 5mb is added for file uploads
+    app.use(bodyParser.json({limit: '5mb'}));
 
     // parse Cookie header and populate req.cookies with an object keyed by the cookie names.
     app.use(cookieParser());
