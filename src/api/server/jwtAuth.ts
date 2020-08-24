@@ -29,7 +29,7 @@ export interface RequestWithUser extends Request {
  */
 export function isAuthenticated(req: RequestWithUser, res: Response, next: NextFunction): void {
     try {
-        const jwtToken: any = req.headers['authorization'].replace(/^Bearer\s/, '');
+        const jwtToken: string = req.headers['authorization'].replace(/^Bearer\s/, '');
 
         if (jwtToken) {
             try {

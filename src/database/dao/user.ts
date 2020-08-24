@@ -1,6 +1,6 @@
 import {UserModel, UserModelInterface} from '../models/user'
 
-export function create(user: UserModelInterface): Promise<any> {
+export function create(user: UserModelInterface): Promise<UserModel> {
     // @ts-ignore
     return UserModel.create({
         name: user.name,
@@ -9,12 +9,12 @@ export function create(user: UserModelInterface): Promise<any> {
     });
 }
 
-export function findAll(): Promise<any> {
+export function findAll(): Promise<UserModel> {
     // @ts-ignore
     return UserModel.findAll({include: [{all: true}]})
 }
 
-export function login(user: UserModelInterface): Promise<any> {
+export function login(user: UserModelInterface): Promise<UserModel> {
     // @ts-ignore
     return UserModel.findOne({
         where: {
@@ -24,7 +24,7 @@ export function login(user: UserModelInterface): Promise<any> {
     })
 }
 
-export function findOne(user: UserModelInterface): Promise<any> {
+export function findOne(user: UserModelInterface): Promise<UserModel> {
     // @ts-ignore
     return UserModel.findOne({
         where: {

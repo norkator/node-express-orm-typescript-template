@@ -95,8 +95,8 @@ export function initErrorHandler(app: express.Application): void {
 
 declare namespace Express {
     export interface Request {
-        method: any;
-        url: any;
+        method: string;
+        url: string;
     }
 
     export interface Response {
