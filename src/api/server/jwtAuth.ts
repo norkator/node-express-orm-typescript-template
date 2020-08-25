@@ -33,7 +33,7 @@ export function isAuthenticated(req: RequestWithUser, res: Response, next: NextF
 
         if (jwtToken) {
             try {
-                req.user = jwt.verify(jwtToken, app.get('secret'));
+                req.user = jwt.verify(jwtToken, process.env.JWT_SECRET);
 
                 return next();
 

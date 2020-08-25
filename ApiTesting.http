@@ -6,6 +6,7 @@ POST http://localhost:3000/auth/create-account
 Content-Type: application/json
 
 {
+  "organizationId": 1,
   "name": "Test User",
   "email": "test@tester.com",
   "password": "toohardpasswd"

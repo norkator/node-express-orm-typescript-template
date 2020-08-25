@@ -3,6 +3,7 @@ import {UserModel, UserModelInterface} from '../models/user'
 export function create(user: UserModelInterface): Promise<UserModelInterface> {
     // @ts-ignore
     return UserModel.create({
+        organization_id: user.organization_id,
         name: user.name,
         email: user.email,
         password: user.password

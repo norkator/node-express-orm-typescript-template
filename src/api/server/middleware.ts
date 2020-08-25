@@ -7,6 +7,9 @@ import * as helmet from 'helmet';
 import {HttpError} from './error';
 import {sendHttpErrorModule} from './error/sendHttpError';
 import {NextFunction} from "express";
+import * as dotEnv from 'dotenv'
+
+dotEnv.config();
 
 
 /**
