@@ -39,6 +39,6 @@ Accept: application/json
 ### Token provided, get token from login
 GET http://localhost:3000/example/with-auth
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdGVyLmNvbSIsImlhdCI6MTU5ODM0MTA1NiwiZXhwIjoxNTk4MzQ0NjU2fQ.iF7nE7uXZsPBfN_yJFA-CPj7dat7MPWgDEBieqPI2Kw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJUZXN0IFVzZXIiLCJpZCI6MywiZW1haWwiOiJ0ZXN0QHRlc3Rlci5jb20iLCJpYXQiOjE1OTgzNDIzNzksImV4cCI6MTU5ODM0NTk3OX0.mgyA-axI4kd-IW-YbyJK7KqpCmIJLyNF3bLM7Fnu9fo
 
 ###

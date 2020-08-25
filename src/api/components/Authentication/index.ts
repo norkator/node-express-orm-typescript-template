@@ -50,7 +50,11 @@ export async function createAccount(req: Request, res: Response, next: NextFunct
         console.log('new user created: ' + saved);
 
 
-        const token: string = jwt.sign({email: user.email}, process.env.JWT_SECRET, {
+        const token: string = jwt.sign({
+            user_name: saved.name,
+            id: saved.id,
+            email: saved.email
+        }, process.env.JWT_SECRET, {
             expiresIn: process.env.JWT_EXPIRE
         });
 
@@ -100,7 +104,11 @@ export async function login(req: Request, res: Response, next: NextFunction): Pr
         const isMatched: boolean = await bcrypt.compare(user.password, dbUser.password);
         if (isMatched) {
 
-            const token: string = jwt.sign({email: user.email}, process.env.JWT_SECRET, {
+            const token: string = jwt.sign({
+                user_name: dbUser.name,
+                id: dbUser.id,
+                email: dbUser.email
+            }, process.env.JWT_SECRET, {
                 expiresIn: process.env.JWT_EXPIRE
             });
 
