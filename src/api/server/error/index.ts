@@ -22,6 +22,7 @@ export class HttpError extends Error {
         Error.captureStackTrace(this, this.constructor);
 
         this.status = status || 500;
+        // noinspection SillyAssignmentJS
         this.name = this.name;
         this.message = message || http.STATUS_CODES[this.status] || 'Error';
     }

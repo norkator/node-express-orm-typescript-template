@@ -6,6 +6,7 @@ POST http://localhost:3000/auth/create-account
 Content-Type: application/json
 
 {
+  "organizationId": 1,
   "name": "Test User",
   "email": "test@tester.com",
   "password": "toohardpasswd"
@@ -38,6 +39,6 @@ Accept: application/json
 ### Token provided, get token from login
 GET http://localhost:3000/example/with-auth
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdGVyLmNvbSIsImlhdCI6MTU5MjM4OTM1MiwiZXhwIjoxNTkyMzkyOTUyfQ.qEv8aABdImvMXPYHRgiDrf3x-RJ15hE57ACZkCaqc5k
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJUZXN0IFVzZXIiLCJpZCI6MywiZW1haWwiOiJ0ZXN0QHRlc3Rlci5jb20iLCJpYXQiOjE1OTgzNDIzNzksImV4cCI6MTU5ODM0NTk3OX0.mgyA-axI4kd-IW-YbyJK7KqpCmIJLyNF3bLM7Fnu9fo
 
 ###

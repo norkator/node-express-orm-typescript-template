@@ -4,7 +4,10 @@ import HttpError from "../../server/error/index";
 import * as jwt from 'jsonwebtoken';
 import {UserModelInterface} from "../../../database/models/user";
 import * as User from '../../../database/dao/user'
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
+import * as dotEnv from 'dotenv'
+
+dotEnv.config();
 
 /**
  * @export
@@ -17,13 +20,14 @@ export async function createAccount(req: Request, res: Response, next: NextFunct
     try {
 
         const user = <UserModelInterface>{
+            organization_id: req.body.organizationId,
             name: req.body.name,
             email: req.body.email,
             password: req.body.password
         };
 
         // Check for mandatory details
-        if (user.name === undefined || user.email === undefined || user.password === undefined) {
+        if (user.organization_id === undefined || user.name === undefined || user.email === undefined || user.password === undefined) {
             throw new Error('Missing details!');
         }
 
@@ -46,8 +50,12 @@ export async function createAccount(req: Request, res: Response, next: NextFunct
         console.log('new user created: ' + saved);
 
 
-        const token: string = jwt.sign({email: user.email}, app.get('secret'), {
-            expiresIn: app.get('jwt-expire')
+        const token: string = jwt.sign({
+            user_name: saved.name,
+            id: saved.id,
+            email: saved.email
+        }, process.env.JWT_SECRET, {
+            expiresIn: process.env.JWT_EXPIRE
         });
 
         res.json({
@@ -96,8 +104,12 @@ export async function login(req: Request, res: Response, next: NextFunction): Pr
         const isMatched: boolean = await bcrypt.compare(user.password, dbUser.password);
         if (isMatched) {
 
-            const token: string = jwt.sign({email: user.email}, app.get('secret'), {
-                expiresIn: app.get('jwt-expire')
+            const token: string = jwt.sign({
+                user_name: dbUser.name,
+                id: dbUser.id,
+                email: dbUser.email
+            }, process.env.JWT_SECRET, {
+                expiresIn: process.env.JWT_EXPIRE
             });
 
             res.json({

@@ -11,6 +11,7 @@ UserModel.init(
             primaryKey: true,
             autoIncrement: true
         },
+        organization_id: BIGINT,
         name: STRING(50),
         email: STRING(50),
         password: STRING(100)
@@ -21,6 +22,7 @@ UserModel.init(
 
 export interface UserModelInterface {
     id: number;
+    organization_id: number;
     name: string;
     email: string;
     password: string;

@@ -7,6 +7,9 @@ import * as helmet from 'helmet';
 import {HttpError} from './error';
 import {sendHttpErrorModule} from './error/sendHttpError';
 import {NextFunction} from "express";
+import * as dotEnv from 'dotenv'
+
+dotEnv.config();
 
 
 /**
@@ -20,7 +23,8 @@ export function configure(app: express.Application): void {
         extended: false
     }));
 
-    app.use(bodyParser.json());
+    // 5mb is added for file uploads
+    app.use(bodyParser.json({limit: '5mb'}));
 
     // parse Cookie header and populate req.cookies with an object keyed by the cookie names.
     app.use(cookieParser());
@@ -94,8 +98,8 @@ export function initErrorHandler(app: express.Application): void {
 
 declare namespace Express {
     export interface Request {
-        method: any;
-        url: any;
+        method: string;
+        url: string;
     }
 
     export interface Response {
