@@ -26,6 +26,7 @@ const router: Router = Router();
  *            schema:
  *              $ref: ''
  *            example:
+ *              organizationId: 1
  *              name: Test User
  *              email: test@tester.com
  *              password: toohardpasswd
