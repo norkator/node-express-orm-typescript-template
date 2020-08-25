@@ -4,7 +4,10 @@ import HttpError from "../../server/error/index";
 import * as jwt from 'jsonwebtoken';
 import {UserModelInterface} from "../../../database/models/user";
 import * as User from '../../../database/dao/user'
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
+import * as dotEnv from 'dotenv'
+
+dotEnv.config();
 
 /**
  * @export
@@ -46,8 +49,8 @@ export async function createAccount(req: Request, res: Response, next: NextFunct
         console.log('new user created: ' + saved);
 
 
-        const token: string = jwt.sign({email: user.email}, app.get('secret'), {
-            expiresIn: app.get('jwt-expire')
+        const token: string = jwt.sign({email: user.email}, process.env.JWT_SECRET, {
+            expiresIn: process.env.JWT_EXPIRE
         });
 
         res.json({
